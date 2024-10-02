@@ -1,0 +1,4 @@
+streamlit
+numpy
+audio-recorder-streamlit
+tensorflow
