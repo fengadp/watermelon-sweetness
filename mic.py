@@ -62,7 +62,7 @@ def audioPreprocessing(data):
     return sample
 
 st.title(":rainbow[Watermelon Sweetness Evaluation]")
-model = tf.keras.models.load_model('wm_lstm.keras')
+model = tf.keras.models.load_model('wm_lstm_4c.keras')
 
 audio_bytes = audio_recorder(
     text="Click -->",
@@ -111,7 +111,7 @@ if audio_bytes:
         max_index = np.argmax(Y_test, axis=1)
         #print(max_index)
 
-        classNames = ['Less Sweet', 'Sweet']
+        classNames = ['Less Less Sweet', 'Less Sweet', 'Sweet', 'Very Sweet']
         prediction_labels = []
         for i in range(numSamples):
             label = classNames[max_index[i]]
