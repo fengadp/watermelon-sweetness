@@ -135,7 +135,6 @@ if audio_bytes:
         with st.container(border=True):
             col1 = st.columns(2)
             with col1[0]:
-                #st.subheader(f":rainbow[Watermelon is {result}]")
                 st.markdown(
                     """
                     <style>
@@ -153,7 +152,6 @@ if audio_bytes:
                 progress_bar.progress(60, text=progress_text)
             with col1[1]:
                 st.subheader(":green[Acoustic Signal]")
-                #st.subheader(" ")
                 st.line_chart(audio_data)
                 progress_bar.progress(70, text=progress_text)
         
