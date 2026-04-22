@@ -30,14 +30,17 @@ def audioPreprocessing(data):
     x = data
     x_abs = np.abs(x)
     n_points = len(x_abs)
-    threshold = 5000
+    x_abs_sorted = np.argsort(x_abs)
+    x_abs_reverse = np.flip(x_abs_sorted)
+    index_max = np.sort(x_abs_reverse[0:numSignals_max])
+    threshold = x_abs[index_max]
     pos = 0
     
     for k in range(numSignals_max):
         if n_points > signal_len:
             for i in range(n_points):
                 if i >= signalOffset:
-                    if (x_abs[i] >= threshold):
+                    if (x_abs[i] >= threshold[k]):
                         pos = i
                         #print(pos)
                         # + 10 do the same as student project
