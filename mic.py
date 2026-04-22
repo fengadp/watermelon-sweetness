@@ -114,7 +114,7 @@ if audio_bytes:
         X_test = X_test.reshape((X_test.shape[0], time_steps, X_test.shape[1]))
         Y_test = model.predict(X_test)
         Y_brix = model2.predict(X_test)
-        brix = np.mean(Y_brix) 
+        brix = np.max(Y_brix) 
         #print(Y_test)
         progress_bar.progress(40, text=progress_text)
 
