@@ -63,6 +63,7 @@ def audioPreprocessing(data):
 
 st.title(":rainbow[Watermelon Sweetness Evaluation]")
 model = tf.keras.models.load_model('wm_lstm_4c.keras')
+model2 = tf.keras.models.load_model('wm_lstm_reg.keras')
 
 audio_bytes = audio_recorder(
     text="Click -->",
@@ -105,6 +106,7 @@ if audio_bytes:
         time_steps = 1
         X_test = X_test.reshape((X_test.shape[0], time_steps, X_test.shape[1]))
         Y_test = model.predict(X_test)
+        Y_brix = model2.predict(X_test)
         #print(Y_test)
         progress_bar.progress(40, text=progress_text)
 
@@ -130,7 +132,7 @@ if audio_bytes:
         with st.container(border=True):
             col1 = st.columns(2)
             with col1[0]:
-                st.subheader(f":rainbow[Watermelon is {result}]")
+                st.subheader(f":rainbow[Watermelon is {result} ({Y_brix})]")
                 st.markdown(
                     """
                     <style>
