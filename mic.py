@@ -133,7 +133,7 @@ if audio_bytes:
         with st.container(border=True):
             col1 = st.columns(2)
             with col1[0]:
-                st.subheader(f":rainbow[Watermelon is {result} ({brix} brix)]")
+                st.subheader(f":rainbow[Watermelon is {result} ({brix:.1f} brix)]")
                 st.markdown(
                     """
                     <style>
