@@ -76,7 +76,7 @@ audio_bytes = audio_recorder(
     pause_threshold=4.0,
     sample_rate=16000,
 )
-st.write("and then knock at a watermelon for 3 times")
+st.write("and then knock on the watermelon three times")
 
 if audio_bytes:
     st.audio(audio_bytes, format="audio/wav")
