@@ -134,8 +134,8 @@ if audio_bytes:
         with st.container(border=True):
             col1 = st.columns(2)
             with col1[0]:
-                st.subheader(f":rainbow[{brix:.1f} °Brix)]")
                 st.subheader(f":rainbow[Watermelon is {result}]")
+                st.subheader(f":rainbow[{brix:.1f} °Brix]")
                 st.markdown(
                     """
                     <style>
@@ -148,6 +148,7 @@ if audio_bytes:
                     """,
                     unsafe_allow_html=True
                 )
+                st.subheader(f":rainbow[{brix:.1f} °Brix)]")
                 st.image("wm_256px.png", use_column_width=True, output_format="auto", width=None)
                 progress_bar.progress(60, text=progress_text)
             with col1[1]:
