@@ -126,7 +126,7 @@ if audio_bytes:
         numClasses = 4
         for i in range(numClasses):
             indices = np.where(max_index == i)
-            print(indices[0])
+            #print(indices[0])
             if len(indices[0]) > 1:
                 flag = 1
                 break
