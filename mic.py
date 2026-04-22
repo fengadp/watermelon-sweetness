@@ -40,7 +40,8 @@ def audioPreprocessing(data):
                     if (x_abs[i] >= threshold):
                         pos = i
                         #print(pos)
-                        start = pos + peakOffset
+                        # + 10 do the same as student project
+                        start = pos + peakOffset + 10
                         stop = start + target_len
                         signal[k,:] = x[start:stop]
                         #print(signal[k,:])
