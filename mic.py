@@ -22,7 +22,8 @@ def audioPreprocessing(data):
     signal = np.zeros([numSignals_max, target_len], dtype=np.int32)
     #signal = np.zeros([numSignals_max, target_len])
     signalOffset = 5000
-    peakOffset = -500
+    #peakOffset = -500
+    peakOffset = 0
     signal_len = signalOffset + target_len + peakOffset + 10
     signal_flag = []
 
