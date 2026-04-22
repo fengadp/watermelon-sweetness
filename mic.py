@@ -113,13 +113,28 @@ if audio_bytes:
         time_steps = 1
         X_test = X_test.reshape((X_test.shape[0], time_steps, X_test.shape[1]))
         Y_test = model.predict(X_test)
-        Y_brix = model2.predict(X_test)
-        brix = np.max(Y_brix) 
+        Y_brix = model2.predict(X_test) 
         #print(Y_test)
+        #print(Y_brix)
         progress_bar.progress(40, text=progress_text)
 
         max_index = np.argmax(Y_test, axis=1)
         #print(max_index)
+
+        # average brix of the same class
+        flag = 0
+        numClasses = 4
+        for i in range(numClasses):
+            indices = np.where(max_index == i)
+            print(indices[0])
+            if len(indices[0]) > 1:
+                flag = 1
+                break
+        if flag == 1:
+            selection = Y_brix[indices]
+            brix = np.mean(selection)
+        else:
+            brix = np.mean(Y_brix)
 
         classNames = ['Less Less Sweet', 'Less Sweet', 'Sweet', 'Very Sweet']
         prediction_labels = []
