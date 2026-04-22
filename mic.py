@@ -42,7 +42,7 @@ def audioPreprocessing(data):
         if n_points > signal_len:
             for i in range(n_points):
                 if i >= signalOffset:
-                    if (x_abs[i] == threshold):
+                    if (x_abs[i] >= threshold):
                         pos = i
                         #print(pos)
                         # + 10 do the same as student project
@@ -80,7 +80,7 @@ audio_bytes = audio_recorder(
     #icon_size="4x",
     energy_threshold=(-1.0,1.0),
     pause_threshold=4.0,
-    sample_rate=16000,
+    sample_rate=44100,
 )
 st.write("and then knock on the watermelon three times")
 
